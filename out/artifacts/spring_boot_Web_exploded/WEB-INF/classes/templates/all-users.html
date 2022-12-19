@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+   <style>
+       .table_col {
+           font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+           font-size: 14px;
+           width: 660px;
+           background: white;
+           text-align: left;
+           border-collapse: collapse;
+           color: #3E4347;
+       }
+       .table_col th:first-child, .table_col td:first-child {
+           color: #F5F6F6;
+           border-left: none;
+       }
+       .table_col th {
+           font-weight: normal;
+           border-bottom: 2px solid #F5E1A6;
+           border-right: 20px solid white;
+           border-left: 20px solid white;
+           padding: 8px 10px;
+       }
+       .table_col td {
+           border-right: 20px solid white;
+           border-left: 20px solid white;
+           padding: 12px 10px;
+           color: #8b8e91;
+       }
+
+   </style>
+    <title>User</title>
+</head>
+<body>
+
+<table class="table_col">
+    <colgroup>
+        <col style="background:#C7DAF0;">
+    </colgroup>
+    <tbody>
+
+    <tr>
+        <th>Id</th>
+
+        <th>Name</th>
+
+        <th>userName</th>
+
+        <th>Email</th>
+        <td colspan="5" style="text-align:right"></td>
+    </tr>
+
+    </tbody>
+    <body>
+    <form th:action="@{/users/user-creat}">
+        <input type="submit" value="Добавить" />
+    </form>
+    <br><br>
+    </body>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.email}"></td>
+        <td><a th:href="@{users/{id}/edit (id=${user.id})}"><input type="submit" value="Изменить"/></a></td>
+        <td><a th:href="@{users/{id}(id=${user.id})}"><input type="submit" value="Удалить"/></a></td>
+
+    </tr>
+    </each>
+
+</table>
+
+</body>
+</html>

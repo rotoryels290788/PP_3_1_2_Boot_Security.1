@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>ShowId</title>
+</head>
+<body>
+<p th:text="${user.userName}">VALUE</p>
+<p th:text="${user.name}">VALUE</p>
+<p th:text="${user.id}">VALUE</p>
+<form th:method="DELETE" th:action="@{/users/{id} (id=${user.id})}">
+<input type="submit" value="УДАЛИТЬ"/>
+</form>
+</body>
+</html>
